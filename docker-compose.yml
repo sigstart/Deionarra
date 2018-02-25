@@ -1,0 +1,45 @@
+# This Docker compose file is modified from the example given in the
+# official Ghost image by Docker on https://store.docker.com/images/ghost,
+# integrating the work of the following devs:
+#   - Adrian Perez (mariadb and Docker volumes): https://adrianperez.org/advanced-deployment-of-ghost-in-2-minutes-with-docker/
+#   - Docker compose file reference (the Right Way™ to do volumes): https://docs.docker.com/compose/compose-file/#service-configuration-reference
+
+version: '3.1'
+
+services:
+  ## Ghost blog container definition
+  ghost:
+    image: ghost:alpine
+    container_name: deionarra
+    restart: always
+    ports:
+      - 8080:2368
+    environment:
+      url: http://localhost:8080
+      database__client: mysql
+      database__connection__host: db
+      database__connection__user: root
+      database__connection__password: example
+      database__connection__database: ghost
+    volumes:
+      - webcontent:/var/lib/ghost/content
+    networks:
+      - overlay
+  ## Database container definition
+  db:
+    image: mysql:5.7
+    container_name: mimir
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+    volumes:
+      - mimir:/var/lib/mysql
+    networks:
+      - overlay
+
+volumes:
+  webcontent: ## Ghost data volume declaration
+  mimir: ## Database data volume declaration
+
+networks:
+  overlay:
