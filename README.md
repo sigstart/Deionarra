@@ -6,6 +6,18 @@
 
 This is a simple Docker Compose configuration that will spin up containers running [Ghost](https://store.docker.com/images/ghost) and [MySQL](https://store.docker.com/images/mysql) (or [MariaDB](https://store.docker.com/images/mariadb)) using the official images from Docker.
 
+It then uses Jason Wilder's (@jwilder) docker-gen for nginx to create a reverse proxy, along with the Let's Encrypt companion container from JrCs to enable TLS.
+
+## Setup
+
+Download the latest `nginx.tmpl` file from @jwilder's nginx-proxy project so that docker-gen can do its thing.
+
+This should be re-run whenever you `docker-compose pull` to update.
+
+```bash
+curl https://raw.githubusercontent.com/jwilder/nginx-proxy/master/nginx.tmpl > nginx.tmpl
+```
+
 You can use it as-is for a local development environment, or create a `docker-compose.override.yml` file, overriding the following variables with your own values (or edit the variables in the main `docker-compose.yml` file):
 
 ```yaml
@@ -18,6 +30,7 @@ services:
       - 80:2368
     environment:
       url: https://example.com
+      VIRTUAL_HOST: example.com
       LETSENCRYPT_HOST: example.com
       LETSENCRYPT_EMAIL: webmaster@example.com
       database__connection__password: makeitstrong
@@ -42,11 +55,15 @@ To install and run Ghost on your server, you can then simply execute:
 
 ## Updating
 
-Updating Ghost (and the DBMS) when should be as simple as running
+Updating Ghost (and the DBMS) should be as simple as running
 
 `docker-compose pull`
 
-and then re-upping with
+Remember to download the latest version of the nginx-proxy template after every update.
+
+`curl https://raw.githubusercontent.com/jwilder/nginx-proxy/master/nginx.tmpl > nginx.tmpl`
+
+After both commands have been executed, you can re-up the project:
 
 `docker-compose up -d`
 
