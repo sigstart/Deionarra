@@ -53,4 +53,4 @@ and then re-upping with
 
 ## Further down the rabbit hole
 
-[Deionarra --- Torment Wiki](http://torment.wikia.com/wiki/Deionarra)
+[Deionarra — Torment Wiki](http://torment.wikia.com/wiki/Deionarra)
