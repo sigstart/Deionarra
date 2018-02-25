@@ -2,7 +2,7 @@
 
 > This is what my eyes see, my Love, unfettered by the shackles of Time.
 
-Ghost blog with SSL/TLS certificates from Let's Encrypt and a MySQL/MariaDB database, deployed using Docker Compose with named volumes for the Ghost and DB containers.
+[Ghost](https://ghost.org) blog with SSL/TLS certificates from Let's Encrypt and a MySQL/MariaDB database, deployed using Docker Compose with named volumes for the Ghost and DB containers.
 
 This is a simple Docker Compose configuration that will spin up containers running [Ghost](https://store.docker.com/images/ghost) and [MySQL](https://store.docker.com/images/mysql) (or [MariaDB](https://store.docker.com/images/mariadb)) using the official images from Docker.
 
@@ -25,6 +25,15 @@ services:
     container_name: db
     environment:
       MYSQL_ROOT_PASSWORD: makeitstrong
+```
+
+If you want to use Let's Encrypt's staging area rather than its live API, you can add the following snippet to the above overrides.
+
+```yaml
+letsencrypt-companion:
+  container_name: letsencrypt-nginx-proxy-companion
+  environment:
+    ACME_CA_URI: https://acme-staging.api.letsencrypt.org/directory
 ```
 
 To install and run Ghost on your server, you can then simply execute:
@@ -54,3 +63,16 @@ and then re-upping with
 ## Further down the rabbit hole
 
 [Deionarra — Torment Wiki](http://torment.wikia.com/wiki/Deionarra)
+
+## Acknowledgements
+
+This project builds on the good work of several others before it, including:
+
+ - [Web Proxy using Docker, NGINX and Let's Encrypt](https://github.com/evertramos/docker-compose-letsencrypt-nginx-proxy-companion) by @evertramos
+
+ Which, in turn, builds on:
+
+  - [nginx-proxy](https://github.com/jwilder/nginx-proxy) and [docker-gen](https://index.docker.io/u/jwilder/docker-gen/) by @jwilder
+  - [docker-letsencrypt-nginx-proxy-companion](https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion) by @JrCs
+
+The very early work of [Adrian Perez](https://adrianperez.org/advanced-deployment-of-ghost-in-2-minutes-with-docker/) using a similar approach, but with named volumes, deserves an honourable mention.

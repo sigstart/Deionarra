@@ -1,2 +1,4 @@
 # Automatic override
+.env
 docker-compose.override.yml
+nginx.tmpl
