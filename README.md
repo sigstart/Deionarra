@@ -4,7 +4,7 @@
 
 Ghost blog with SSL/TLS certificates from Let's Encrypt and a MySQL/MariaDB database, deployed using Docker Compose with named volumes for the Ghost and DB containers.
 
-This is a simple Docker Compose configuration that will spin up containers running [Ghost][Ghost-Docker] and [MySQL][MySQL-Docker] (or [MariaDB][MariaDB-Docker]) using the official images from Docker.
+This is a simple Docker Compose configuration that will spin up containers running [Ghost][https://store.docker.com/images/ghost] and [MySQL][https://store.docker.com/images/mysql] (or [MariaDB][https://store.docker.com/images/mariadb]) using the official images from Docker.
 
 You can use it as-is for a local development environment, or create a `docker-compose.override.yml` file, overriding the following variables with your own values (or edit the variables in the main `docker-compose.yml` file):
 
@@ -54,8 +54,3 @@ and then re-upping with
 ## Further down the rabbit hole
 
 [Deionarra --- Torment Wiki](http://torment.wikia.com/wiki/Deionarra)
-
-[//]: <> (References)
-[Ghost-Docker]: https://store.docker.com/images/ghost (Official Ghost image by Docker)
-[MySQL-Docker]: https://store.docker.com/images/mysql (Official MySQL image by Docker)
-[MariaDB-Docker]: https://store.docker.com/images/mariadb (Official MariaDB image by Docker)
