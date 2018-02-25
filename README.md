@@ -1,7 +1,8 @@
 # Deionarra
-Ghost blog with SSL certificates from Let's Encrypt and a MySQL/MariaDB database, deployed using Docker Compose with named volumes for the Ghost and DB containers.
 
 > This is what my eyes see, my love, unfettered by the shackles of Time.
+
+Ghost blog with SSL/TLS certificates from Let's Encrypt and a MySQL/MariaDB database, deployed using Docker Compose with named volumes for the Ghost and DB containers.
 
 This is a simple Docker Compose configuration that will spin up containers running [Ghost][Ghost-Docker] and [MySQL][MySQL-Docker] (or [MariaDB][MariaDB-Docker]) using the official images from Docker.
 
@@ -54,9 +55,7 @@ and then re-upping with
 
 [Deionarra --- Torment Wiki](http://torment.wikia.com/wiki/Deionarra)
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/tUt84LyH2JI?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-
-[//]: <> (This is also a comment.)
+[//]: <> (References)
 [Ghost-Docker]: https://store.docker.com/images/ghost (Official Ghost image by Docker)
 [MySQL-Docker]: https://store.docker.com/images/mysql (Official MySQL image by Docker)
 [MariaDB-Docker]: https://store.docker.com/images/mariadb (Official MariaDB image by Docker)
