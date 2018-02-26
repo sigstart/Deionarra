@@ -40,13 +40,22 @@ services:
       MYSQL_ROOT_PASSWORD: makeitstrong
 ```
 
-If you want to use Let's Encrypt's staging area rather than its live API, you can add the following snippet to the above overrides.
+The web proxy which handles automatic Let's Encrypt certificate renewal is configured using environment variables in the .env file. Copy/rename `.env.sample` to `.env` and adjust the following variables to your heart's content:
 
-```yaml
-letsencrypt-companion:
-  container_name: letsencrypt-nginx-proxy-companion
-  environment:
-    ACME_CA_URI: https://acme-staging.api.letsencrypt.org/directory
+```ini
+# Project name
+COMPOSE_PROJECT_NAME=deionarra
+
+# Container names
+CONTAINER_NGINX=nginx
+CONTAINER_DOCKERGEN=docker-gen
+CONTAINER_LETSENCRYPT=letsencrypt-nginx-proxy-companion
+
+# Volumes
+NGINX_FILES_PATH=./nginx-data
+
+# Switch Let's Encrypt from the staging to its live API
+# ACME_CA_URI=https://acme-v01.api.letsencrypt.org/directory
 ```
 
 To install and run Ghost on your server, you can then simply execute:
