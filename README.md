@@ -25,9 +25,7 @@ version: '3.1'
 
 services:
   ghost:
-    container_name: ghost
-    ports:
-      - 80:2368
+    container_name: deionarra
     environment:
       url: https://example.com
       VIRTUAL_HOST: example.com
@@ -35,7 +33,7 @@ services:
       LETSENCRYPT_EMAIL: webmaster@example.com
       database__connection__password: makeitstrong
   db:
-    container_name: db
+    container_name: mimir
     environment:
       MYSQL_ROOT_PASSWORD: makeitstrong
 ```
