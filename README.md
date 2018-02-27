@@ -84,6 +84,8 @@ After both commands have been executed, you can re-up the project:
 
 3. The value of `database__connection__host` can be either the name of the service (`db`), or the name of the image (`mimir`).
 
+4. The `nginx` image does not handle named volumes well when running on an actual domain (as opposed to localhost).
+
 ## Further down the rabbit hole
 
 [Deionarra — Torment Wiki](http://torment.wikia.com/wiki/Deionarra)
