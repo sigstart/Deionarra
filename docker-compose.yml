@@ -43,6 +43,7 @@ services:
   nginx:
     image: nginx:alpine
     container_name: ${CONTAINER_NGINX:-nginx}
+    restart: always
     ports:
       - "80:80"
       - "443:443"
@@ -57,6 +58,7 @@ services:
   docker-gen:
     image: jwilder/docker-gen
     container_name: ${CONTAINER_DOCKERGEN:-docker-gen}
+    restart: always
     command: -notify-sighup nginx -watch -wait 5s:30s /etc/docker-gen/templates/nginx.tmpl /etc/nginx/conf.d/default.conf
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
