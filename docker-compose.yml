@@ -84,7 +84,7 @@ services:
     environment:
       NGINX_DOCKER_GEN_CONTAINER: ${CONTAINER_DOCKERGEN:-docker-gen}
       NGINX_PROXY_CONTAINER: ${CONTAINER_NGINX:-nginx}
-      ACME_CA_URI: ${ACME_CA_URI:-https://acme-staging.api.letsencrypt.org/directory}
+      ACME_CA_URI: ${ACME_CA_URI:-https://acme-staging-v02.api.letsencrypt.org/directory}
     networks:
       - proxy
 
