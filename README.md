@@ -1,3 +1,7 @@
+| ❗ Archived / Not working |
+|:--------------------------|
+| This repo was a hack to get Let's Encrypt certificates working with Ghost in a containerised way. After several updates to the containers on which this depended, this no longer works. Ghost now has Let's Encrypt support built-in - use that instead. |
+
 # Deionarra
 
 > This is what my eyes see, my Love, unfettered by the shackles of Time.
